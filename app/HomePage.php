@@ -1,11 +1,4 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace App;
 
 use App\Translator;
@@ -17,8 +10,14 @@ use App\Translator;
 class HomePage {
 
     public function renderHomePage(){
-        
+
         $posts = filter_input(INPUT_POST, 'input');
+        $template = filter_input(INPUT_POST, 'template', FILTER_SANITIZE_STRING);
+
+        if(!$template){
+            $template = 'HomePage';
+        }
+
         $output = NULL;
         if($posts){
             
@@ -26,11 +25,10 @@ class HomePage {
             $output = $translator->strTranslate($posts);
             
         }
+
         $latte = new \Latte\Engine;
         $latte ->setTempDirectory(__DIR__ . '/temp');
-        $latte ->render( __DIR__ . '/templates/HomePage.latte', ['posts' => $output]);
-        
-        
+        $latte ->render( __DIR__ . '/templates/'.$template.'.latte', ['posts' => $output]); 
     }
     
 }
