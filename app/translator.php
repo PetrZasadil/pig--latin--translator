@@ -4,7 +4,7 @@ namespace App;
 
 /**
  * Description of translator
- *
+ * Main Class for Pig Latin translator
  * @author petrz
  */
 class Translator {
@@ -17,8 +17,27 @@ class Translator {
         return $word;
     }
     
-    public function translate($input){
-        return $output;
+    public function strTranslate($input){
+        
+        $words = explode(' ', trim($input));
+        
+        $output = '';
+        foreach($words as $word){
+            
+            if(substr($word, 2) === $this->oth && substr($word, -2) != 'ay'){
+                
+                $output .= ' '.preg_replace('/^(^'.$this->oth.'*)(.*)/', '$2-$1ay', $word);
+                
+            } elseif(substr($word, -2) != 'ay' && $this->hasVowels($word)){
+                
+                $output .=  ' '.preg_replace('/^([^'.$this->vowels.']*)(.*)/', '$2-$1ay', $word);
+                
+            } else {
+                $output .=  ' '.$word;
+            }
+            
+        }        
+        return trim($output);
     }
     
 }
