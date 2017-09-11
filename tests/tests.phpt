@@ -18,3 +18,12 @@ Assert::same('any words', $validator->validate(' any   words   '));
 Assert::same('', $validator->validate(' '));
 Assert::same('', $validator->validate('<script>'));
 Assert::same('&#34;&#34;', $validator->validate('"<script>"'));
+
+
+$translator = new \App\Translator;
+/* testing hasVowels */
+
+Assert::same(1, $translator->hasVowels('a'));
+Assert::same(0, $translator->hasVowels('b'));
+Assert::same(1, $translator->hasVowels('beast'));
+Assert::same(1, $translator->hasVowels('question'));
