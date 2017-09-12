@@ -1,0 +1,27 @@
+{* Latte Homepage template *}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	
+        <title>Pig Latin Translator</title>
+        
+        <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <p>Pig Latin Translator</p>
+    <form action="" method="POST">
+        <textarea n:attr="name => 'input',class => 'input',rows => '8', placeholder => 'please write any text'">{$posts}</textarea>
+        <input type="hidden" id="template" value="HomePage">
+        <input type="submit" value="Translate" />
+        <input id="toogle-auotranslate" type="checkbox" />
+        <label for="toogle-auotranslate">Auto-translate</label>
+    </form>
+    {block scripts}
+	<script src="js/jquery.min.js"></script>
+	<script src="js/main.js" ></script>
+    {/block}
+</body>
+</html>

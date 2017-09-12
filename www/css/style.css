@@ -1,0 +1,34 @@
+/* 
+    Created on : Sep 12, 2017, 12:31:16 AM
+    Author     : petrz
+*/
+body{
+    margin: 0px;
+}
+form{
+    width: 500px;
+    padding: 10px;
+    position: relative;
+    left:50%;
+    margin-left: -250px;
+}
+form textarea {
+    width: 100%;
+}
+form input[type=submit] {
+    float: left;
+    margin: 10px;
+}
+form input[type=checkbox] {
+    float: right;
+    margin: 15px 5px 15px 10px;
+}
+form label{
+    float: right;
+    margin-top: 11px;
+}
+p {
+    padding: 10px;
+    text-align: center;
+}
+

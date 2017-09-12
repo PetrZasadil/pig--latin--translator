@@ -1,6 +1,6 @@
 <?php
 /* 
- * Test files for Pifg Translator
+ * Test files for Pig Latin Translator
 
  */
 use Tester\Assert;
@@ -21,9 +21,19 @@ Assert::same('&#34;&#34;', $validator->validate('"<script>"'));
 
 
 $translator = new \App\Translator;
-/* testing hasVowels */
 
+/* testing hasVowels */
 Assert::same(1, $translator->hasVowels('a'));
 Assert::same(0, $translator->hasVowels('b'));
 Assert::same(1, $translator->hasVowels('beast'));
 Assert::same(1, $translator->hasVowels('question'));
+
+/* testing  strTranslate */
+
+Assert::same('east-bay', $translator->strTranslate('beast'));
+Assert::same('bbb', $translator->strTranslate('bbb'));
+Assert::same('123', $translator->strTranslate(' 123 '));
+Assert::same('estion-quay', $translator->strTranslate('question'));
+Assert::same('estion-quay ough-day', $translator->strTranslate('question dough'));
+Assert::same('ar-stay', $translator->strTranslate('ar-stay'));
+Assert::same('ar-stay appy-hay', $translator->strTranslate('ar-stay happy '));
