@@ -18,6 +18,7 @@ Assert::same('any words', $validator->validate(' any   words   '));
 Assert::same('', $validator->validate(' '));
 Assert::same('', $validator->validate('<script>'));
 Assert::same('&#34;&#34;', $validator->validate('"<script>"'));
+Assert::same('hi peoples', $validator->validate('Hi Peoples'));
 
 
 $translator = new \App\Translator;
