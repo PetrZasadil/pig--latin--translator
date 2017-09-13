@@ -9,7 +9,7 @@ require_once  __DIR__ . '/../app/bootstrap.php';
 
 \Tester\Environment::setup();
 
-$validator = new \App\Validator;
+$validator = new App\Validator;
 
 /* testing validation */
 Assert::same('string', $validator->validate('string'));
