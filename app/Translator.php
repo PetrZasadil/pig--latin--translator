@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use App\Validator;
@@ -31,12 +30,13 @@ class Translator {
         
         $validator = new Validator();
         
-        $valid_input = trim($validator->validate($input));
+        $valid_input = trim($validator->validate($input)); //validate full string
         
-        $words = explode(' ', $valid_input);
+        $words = explode(' ', $valid_input); //create array of words
         
         $output = '';
-        foreach($words as $word){
+        
+        foreach($words as $word){ //translate all words
             
             if(substr($word, 0, 2) === $this->oth && substr($word, -2) != 'ay'){
                 
