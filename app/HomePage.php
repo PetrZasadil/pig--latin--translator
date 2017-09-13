@@ -4,7 +4,7 @@ namespace App;
 use App\Translator;
 /**
  * Description of HomePage
- *
+ * Render HomePage
  * @author petrz
  */
 class HomePage {
@@ -13,7 +13,7 @@ class HomePage {
 
         $posts = filter_input(INPUT_POST, 'input', FILTER_SANITIZE_STRING);
         /* Template iput is for simple ajax.  This ajax solution is not for real apps, no routing, no security etc.
-         * This solution is for a code demonstration.  
+         * This solution is for a code demonstration. URL in xhr is untreated
          */
         $template = filter_input(INPUT_POST, 'template', FILTER_SANITIZE_STRING);
 
